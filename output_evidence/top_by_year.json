@@ -1,0 +1,1162 @@
+{
+  "1990": {
+    "top_artists": [
+      {
+        "artist_id": "ARKSZW81187B9B695D",
+        "artist_name": "Mariah Carey",
+        "hotttnesss": 0.787
+      },
+      {
+        "artist_id": "ARX9YIP1187B98A656",
+        "artist_name": "RUN-DMC",
+        "hotttnesss": 0.6066
+      },
+      {
+        "artist_id": "ARSW5F51187FB4CFC9",
+        "artist_name": "Alice In Chains",
+        "hotttnesss": 0.5979
+      },
+      {
+        "artist_id": "AR9W3X91187FB3994C",
+        "artist_name": "Phil Collins",
+        "hotttnesss": 0.5783
+      },
+      {
+        "artist_id": "AR5OH2Z1187B9A46A9",
+        "artist_name": "Iggy Pop",
+        "hotttnesss": 0.5736
+      },
+      {
+        "artist_id": "ARAKARO1187B9A1EB6",
+        "artist_name": "George Michael",
+        "hotttnesss": 0.5457
+      },
+      {
+        "artist_id": "ARQOATR1187B9AE959",
+        "artist_name": "Jane's Addiction",
+        "hotttnesss": 0.5352
+      },
+      {
+        "artist_id": "ARL3VGT1187FB40E8E",
+        "artist_name": "Los Fabulosos Cadillacs",
+        "hotttnesss": 0.5217
+      },
+      {
+        "artist_id": "ARD5K161187B9AC784",
+        "artist_name": "Orbital",
+        "hotttnesss": 0.4987
+      },
+      {
+        "artist_id": "ARN0DMU1187FB5B63A",
+        "artist_name": "Daryl Hall & John Oates",
+        "hotttnesss": 0.4964
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOTNNLV12A8C1344BF",
+        "song_name": "Telephone Song",
+        "artist_name": "The Vaughan Brothers;Stevie Ray Vaughan;Jimmy Vaughan",
+        "hotttnesss": 0.7802
+      },
+      {
+        "song_id": "SOSXAMA12A8C133298",
+        "song_name": "Good Texan",
+        "artist_name": "The Vaughan Brothers",
+        "hotttnesss": 0.7561
+      },
+      {
+        "song_id": "SOEMSEL12A8C133A42",
+        "song_name": "Don't Treat Me Bad",
+        "artist_name": "Firehouse",
+        "hotttnesss": 0.7223
+      },
+      {
+        "song_id": "SODDZAD12A6701DC4C",
+        "song_name": "Commercial Reign",
+        "artist_name": "Inspiral Carpets",
+        "hotttnesss": 0.6652
+      },
+      {
+        "song_id": "SOHWUWA12A8C1325AE",
+        "song_name": "Hillbillies From Outerspace",
+        "artist_name": "The Vaughan Brothers",
+        "hotttnesss": 0.6543
+      },
+      {
+        "song_id": "SOXESGI12A8C13F85C",
+        "song_name": "Somebody Loan Me A Dime",
+        "artist_name": "Fenton Robinson",
+        "hotttnesss": 0.6421
+      },
+      {
+        "song_id": "SOTNHJI12A8C135862",
+        "song_name": "Long Way From Home",
+        "artist_name": "The Vaughan Brothers;Stevie Ray Vaughan;Jimmy Vaughan",
+        "hotttnesss": 0.6283
+      },
+      {
+        "song_id": "SOSBDSF12AB0189007",
+        "song_name": "Entre Caníbales",
+        "artist_name": "Soda Stereo",
+        "hotttnesss": 0.6262
+      },
+      {
+        "song_id": "SOFIGYP12A6D4FA5C7",
+        "song_name": "Twilight",
+        "artist_name": "Vangelis",
+        "hotttnesss": 0.6248
+      },
+      {
+        "song_id": "SOXHSTL12A8C13B5A6",
+        "song_name": "Chime (edit)",
+        "artist_name": "Orbital",
+        "hotttnesss": 0.6157
+      }
+    ]
+  },
+  "1991": {
+    "top_artists": [
+      {
+        "artist_id": "ARM7EDF1187B9B3FA1",
+        "artist_name": "Guns N' Roses",
+        "hotttnesss": 0.7137
+      },
+      {
+        "artist_id": "AR12F2S1187FB56EEF",
+        "artist_name": "Aerosmith",
+        "hotttnesss": 0.6107
+      },
+      {
+        "artist_id": "AR4L4WQ1187FB51996",
+        "artist_name": "The Prodigy",
+        "hotttnesss": 0.6014
+      },
+      {
+        "artist_id": "ARR9XGB1187B9912E6",
+        "artist_name": "Boyz II Men",
+        "hotttnesss": 0.6012
+      },
+      {
+        "artist_id": "ARAIABB1187B9AC6E2",
+        "artist_name": "Seal",
+        "hotttnesss": 0.58
+      },
+      {
+        "artist_id": "ARE8GLF1187FB52532",
+        "artist_name": "Red Hot Chili Peppers",
+        "hotttnesss": 0.5769
+      },
+      {
+        "artist_id": "ARAZCWP129462A97F1",
+        "artist_name": "Bob Marley",
+        "hotttnesss": 0.5701
+      },
+      {
+        "artist_id": "AR9YWMS1187FB43A34",
+        "artist_name": "Dinosaur Jr.",
+        "hotttnesss": 0.5516
+      },
+      {
+        "artist_id": "AR9YWMS1187FB43A34",
+        "artist_name": "Dinosaur Jr",
+        "hotttnesss": 0.5516
+      },
+      {
+        "artist_id": "AR5N8VN1187FB37A4E",
+        "artist_name": "Soundgarden",
+        "hotttnesss": 0.5458
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOUXANT12A6D4FB048",
+        "song_name": "Hunger Strike",
+        "artist_name": "Temple Of The Dog",
+        "hotttnesss": 0.849
+      },
+      {
+        "song_id": "SOJNQAS12A8C134963",
+        "song_name": "Music For The Head",
+        "artist_name": "Porcupine Tree",
+        "hotttnesss": 0.7778
+      },
+      {
+        "song_id": "SOQMWJG12A6701E1AC",
+        "song_name": "Mistadobalina",
+        "artist_name": "Del Tha Funkee Homosapien",
+        "hotttnesss": 0.759
+      },
+      {
+        "song_id": "SONSFHN12A8C13463E",
+        "song_name": "Stumblin' Man (Album)",
+        "artist_name": "Tad",
+        "hotttnesss": 0.7439
+      },
+      {
+        "song_id": "SOGRXZY12A8C139043",
+        "song_name": "Thrill Me",
+        "artist_name": "Simply Red",
+        "hotttnesss": 0.7211
+      },
+      {
+        "song_id": "SOBANAT12A6D4F7501",
+        "song_name": "Naked In The Rain (Album Version)",
+        "artist_name": "Red Hot Chili Peppers",
+        "hotttnesss": 0.7064
+      },
+      {
+        "song_id": "SOIBEXL12A8AE46975",
+        "song_name": "Scenario",
+        "artist_name": "A Tribe Called Quest",
+        "hotttnesss": 0.7041
+      },
+      {
+        "song_id": "SOQLJFO12A6D4F7503",
+        "song_name": "The Greeting Song (Album Version)",
+        "artist_name": "Red Hot Chili Peppers",
+        "hotttnesss": 0.7015
+      },
+      {
+        "song_id": "SOIHJSD12A6701EB04",
+        "song_name": "Locomotive (Complicity)",
+        "artist_name": "Guns N' Roses",
+        "hotttnesss": 0.701
+      },
+      {
+        "song_id": "SOVVITW12A8C146BD0",
+        "song_name": "Ya Lil' Crumbsnatchers (LP Version)",
+        "artist_name": "Del Tha Funkee Homosapien",
+        "hotttnesss": 0.6582
+      }
+    ]
+  },
+  "1992": {
+    "top_artists": [
+      {
+        "artist_id": "ARUJ5A41187FB3F5F1",
+        "artist_name": "U2",
+        "hotttnesss": 0.7503
+      },
+      {
+        "artist_id": "ARW9FP41187B98C2A7",
+        "artist_name": "Annie Lennox",
+        "hotttnesss": 0.6211
+      },
+      {
+        "artist_id": "AR46CAD1187FB4D84B",
+        "artist_name": "Bad Religion",
+        "hotttnesss": 0.6182
+      },
+      {
+        "artist_id": "ARSW5F51187FB4CFC9",
+        "artist_name": "Alice In Chains",
+        "hotttnesss": 0.5829
+      },
+      {
+        "artist_id": "ARAZCWP129462A97F1",
+        "artist_name": "Bob Marley & The Wailers",
+        "hotttnesss": 0.5701
+      },
+      {
+        "artist_id": "AR06EB01187FB40150",
+        "artist_name": "NOFX",
+        "hotttnesss": 0.5543
+      },
+      {
+        "artist_id": "ARV8T9T1187B99F3F4",
+        "artist_name": "Amorphis",
+        "hotttnesss": 0.5536
+      },
+      {
+        "artist_id": "ART3O5Z1187B9AB043",
+        "artist_name": "Stevie Ray Vaughan",
+        "hotttnesss": 0.5443
+      },
+      {
+        "artist_id": "ARVML631187B99E90D",
+        "artist_name": "The B-52's",
+        "hotttnesss": 0.5375
+      },
+      {
+        "artist_id": "ARTSGR41187B9912C6",
+        "artist_name": "W.A.S.P.",
+        "hotttnesss": 0.5373
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOUXEOI12A6D4FB18E",
+        "song_name": "They Reminisce Over You (Single Version)",
+        "artist_name": "Pete Rock & C.L. Smooth",
+        "hotttnesss": 0.9323
+      },
+      {
+        "song_id": "SOGDLTS12A8C135A9B",
+        "song_name": "Sickman",
+        "artist_name": "Alice In Chains",
+        "hotttnesss": 0.8601
+      },
+      {
+        "song_id": "SOPANEB12A8C13E81E",
+        "song_name": "God Smack",
+        "artist_name": "Alice In Chains",
+        "hotttnesss": 0.8184
+      },
+      {
+        "song_id": "SODDXCD12A8C1339AB",
+        "song_name": "Hunting",
+        "artist_name": "Deep Forest",
+        "hotttnesss": 0.7776
+      },
+      {
+        "song_id": "SOUFPAB12A8C1382E0",
+        "song_name": "It Could All Get Blown Away",
+        "artist_name": "The Jeff Healey Band",
+        "hotttnesss": 0.7307
+      },
+      {
+        "song_id": "SOOLVIB12A8C1408E2",
+        "song_name": "Brother",
+        "artist_name": "Alice In Chains",
+        "hotttnesss": 0.7087
+      },
+      {
+        "song_id": "SOCUXEW12A58A7CA5B",
+        "song_name": "Monopoly On Sorrow",
+        "artist_name": "Suicidal Tendencies",
+        "hotttnesss": 0.7045
+      },
+      {
+        "song_id": "SOLGWJT12A8C14181B",
+        "song_name": "Phorever People",
+        "artist_name": "Shamen",
+        "hotttnesss": 0.6889
+      },
+      {
+        "song_id": "SOITBNC12AF72A0B2A",
+        "song_name": "Smile Jamaica",
+        "artist_name": "Bob Marley & The Wailers",
+        "hotttnesss": 0.6756
+      },
+      {
+        "song_id": "SOPIKEG12A58291636",
+        "song_name": "Stickin In My Eye",
+        "artist_name": "NOFX",
+        "hotttnesss": 0.6712
+      }
+    ]
+  },
+  "1993": {
+    "top_artists": [
+      {
+        "artist_id": "ARKSZW81187B9B695D",
+        "artist_name": "Mariah Carey",
+        "hotttnesss": 0.787
+      },
+      {
+        "artist_id": "ARH6W4X1187B99274F",
+        "artist_name": "Radiohead",
+        "hotttnesss": 0.6837
+      },
+      {
+        "artist_id": "ARN5NHX1187FB4F755",
+        "artist_name": "The Smashing Pumpkins",
+        "hotttnesss": 0.6472
+      },
+      {
+        "artist_id": "ARQXC7V1187FB4DA9E",
+        "artist_name": "DAVE MATTHEWS BAND",
+        "hotttnesss": 0.6386
+      },
+      {
+        "artist_id": "ARF3GX71187FB3EB66",
+        "artist_name": "Martina McBride",
+        "hotttnesss": 0.6282
+      },
+      {
+        "artist_id": "ARO4WQR1187B9B9825",
+        "artist_name": "Kenny Rogers",
+        "hotttnesss": 0.6254
+      },
+      {
+        "artist_id": "AR12F2S1187FB56EEF",
+        "artist_name": "Aerosmith",
+        "hotttnesss": 0.6107
+      },
+      {
+        "artist_id": "ARX9YIP1187B98A656",
+        "artist_name": "RUN-DMC",
+        "hotttnesss": 0.6066
+      },
+      {
+        "artist_id": "ART4QZC1187FB51612",
+        "artist_name": "Janet Jackson",
+        "hotttnesss": 0.5826
+      },
+      {
+        "artist_id": "AR9W3X91187FB3994C",
+        "artist_name": "Phil Collins",
+        "hotttnesss": 0.5783
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOWEEGD12A8C136D4D",
+        "song_name": "Verano traidor",
+        "artist_name": "Vilma Palma e Vampiros",
+        "hotttnesss": 0.7287
+      },
+      {
+        "song_id": "SOARXSQ12A67020F78",
+        "song_name": "Rocket",
+        "artist_name": "The Smashing Pumpkins",
+        "hotttnesss": 0.7137
+      },
+      {
+        "song_id": "SOAPIHC12A6D4F5FD5",
+        "song_name": "Tongue",
+        "artist_name": "Butthole Surfers",
+        "hotttnesss": 0.6694
+      },
+      {
+        "song_id": "SOMPMVQ12A58A78C8E",
+        "song_name": "Only When I'm Drunk",
+        "artist_name": "Tha Alkaholiks",
+        "hotttnesss": 0.6354
+      },
+      {
+        "song_id": "SONPKNE12AB0180390",
+        "song_name": "Matador",
+        "artist_name": "Los Fabulosos Cadillacs",
+        "hotttnesss": 0.6295
+      },
+      {
+        "song_id": "SOXFQVY12A58A7B456",
+        "song_name": "Everyday",
+        "artist_name": "Phil Collins",
+        "hotttnesss": 0.614
+      },
+      {
+        "song_id": "SOUHJKU12AB017DF67",
+        "song_name": "Stop Whispering (US Version)",
+        "artist_name": "Radiohead",
+        "hotttnesss": 0.607
+      },
+      {
+        "song_id": "SOMLGKF12AB017DF3C",
+        "song_name": "Vegetable (Live)",
+        "artist_name": "Radiohead",
+        "hotttnesss": 0.5874
+      },
+      {
+        "song_id": "SOUWLPU12A6D4F9814",
+        "song_name": "Crackbabies",
+        "artist_name": "Urge Overkill",
+        "hotttnesss": 0.586
+      },
+      {
+        "song_id": "SOHXASU12A6D4F6B1C",
+        "song_name": "If I Run",
+        "artist_name": "Semisonic",
+        "hotttnesss": 0.5775
+      }
+    ]
+  },
+  "1994": {
+    "top_artists": [
+      {
+        "artist_id": "ARPDVPJ1187B9ADBE9",
+        "artist_name": "Usher",
+        "hotttnesss": 0.8546
+      },
+      {
+        "artist_id": "ARBEOHF1187B9B044D",
+        "artist_name": "Madonna",
+        "hotttnesss": 0.6656
+      },
+      {
+        "artist_id": "AR46CAD1187FB4D84B",
+        "artist_name": "Bad Religion",
+        "hotttnesss": 0.6182
+      },
+      {
+        "artist_id": "ARR9XGB1187B9912E6",
+        "artist_name": "Boyz II Men",
+        "hotttnesss": 0.6012
+      },
+      {
+        "artist_id": "ARK9TRQ1187B99C095",
+        "artist_name": "Nine Inch Nails",
+        "hotttnesss": 0.5985
+      },
+      {
+        "artist_id": "ARLHO5Z1187FB4C861",
+        "artist_name": "Beastie Boys",
+        "hotttnesss": 0.5916
+      },
+      {
+        "artist_id": "ARNDL191187FB51583",
+        "artist_name": "Jimi Hendrix",
+        "hotttnesss": 0.5879
+      },
+      {
+        "artist_id": "AR3MSAN1187B98F06B",
+        "artist_name": "OutKast",
+        "hotttnesss": 0.5745
+      },
+      {
+        "artist_id": "ARF0W6Z1187B9AC325",
+        "artist_name": "Cradle Of Filth",
+        "hotttnesss": 0.5726
+      },
+      {
+        "artist_id": "ARBEBBY1187B9B43DB",
+        "artist_name": "Tom Petty",
+        "hotttnesss": 0.5684
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOBARGP12A58A7B1D9",
+        "song_name": "Into Hiding",
+        "artist_name": "Amorphis",
+        "hotttnesss": 0.7862
+      },
+      {
+        "song_id": "SOTEZMZ12A8C138355",
+        "song_name": "Call Of Da Wild",
+        "artist_name": "OutKast",
+        "hotttnesss": 0.7575
+      },
+      {
+        "song_id": "SOTWIIY12A6D4F8837",
+        "song_name": "Nonfiction",
+        "artist_name": "The Black Crowes",
+        "hotttnesss": 0.7559
+      },
+      {
+        "song_id": "SOIPZYI12A8C139CD9",
+        "song_name": "Street Crab",
+        "artist_name": "Helmet",
+        "hotttnesss": 0.7335
+      },
+      {
+        "song_id": "SOBMNXE12A8C140F8A",
+        "song_name": "Infected",
+        "artist_name": "Bad Religion",
+        "hotttnesss": 0.6985
+      },
+      {
+        "song_id": "SOTEDAD12A8AE4735F",
+        "song_name": "Forever",
+        "artist_name": "Orbital",
+        "hotttnesss": 0.6851
+      },
+      {
+        "song_id": "SODUOQU12A58A7D2A8",
+        "song_name": "The House Is Rockin'",
+        "artist_name": "Stevie Ray Vaughan And Double Trouble",
+        "hotttnesss": 0.6787
+      },
+      {
+        "song_id": "SOPOWJI12A8C14159F",
+        "song_name": "Reaching For The Best",
+        "artist_name": "The Exciters",
+        "hotttnesss": 0.6763
+      },
+      {
+        "song_id": "SOQMZCQ12A8C1335F0",
+        "song_name": "Anybody Seen My Girl",
+        "artist_name": "Keb'Mo'",
+        "hotttnesss": 0.6625
+      },
+      {
+        "song_id": "SOZQDRV12A8C133FB1",
+        "song_name": "Rise & Shine",
+        "artist_name": "The Cardigans",
+        "hotttnesss": 0.6547
+      }
+    ]
+  },
+  "1995": {
+    "top_artists": [
+      {
+        "artist_id": "ARF8HTQ1187B9AE693",
+        "artist_name": "Daft Punk",
+        "hotttnesss": 1.0213
+      },
+      {
+        "artist_id": "AR6PJ8R1187FB5AD70",
+        "artist_name": "Shakira",
+        "hotttnesss": 0.8042
+      },
+      {
+        "artist_id": "ARXPPEY1187FB51DF4",
+        "artist_name": "Michael Jackson",
+        "hotttnesss": 0.7665
+      },
+      {
+        "artist_id": "ARDCFNZ1187FB3DDB0",
+        "artist_name": "Enrique Iglesias",
+        "hotttnesss": 0.7491
+      },
+      {
+        "artist_id": "ARDVZTE1187FB5A0A1",
+        "artist_name": "Bon Jovi",
+        "hotttnesss": 0.7189
+      },
+      {
+        "artist_id": "AR6PJ8R1187FB5AD70",
+        "artist_name": "Shakira",
+        "hotttnesss": 0.7172
+      },
+      {
+        "artist_id": "ARH6W4X1187B99274F",
+        "artist_name": "Radiohead",
+        "hotttnesss": 0.6759
+      },
+      {
+        "artist_id": "ARN5NHX1187FB4F755",
+        "artist_name": "The Smashing Pumpkins",
+        "hotttnesss": 0.6704
+      },
+      {
+        "artist_id": "ARW9FP41187B98C2A7",
+        "artist_name": "Annie Lennox",
+        "hotttnesss": 0.6211
+      },
+      {
+        "artist_id": "AR46CAD1187FB4D84B",
+        "artist_name": "Bad Religion",
+        "hotttnesss": 0.6182
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SONJBQX12A6D4F8382",
+        "song_name": "Da Funk",
+        "artist_name": "Daft Punk",
+        "hotttnesss": 0.8623
+      },
+      {
+        "song_id": "SOYSUZL12A6D4F9005",
+        "song_name": "Ocean Drive",
+        "artist_name": "Lighthouse Family",
+        "hotttnesss": 0.8486
+      },
+      {
+        "song_id": "SOCWZCV12A58A7AB87",
+        "song_name": "Keep Hope Alive",
+        "artist_name": "The Crystal Method",
+        "hotttnesss": 0.7568
+      },
+      {
+        "song_id": "SOJARRO12AC90756C5",
+        "song_name": "Hippa To Da Hoppa [Explicit Version]",
+        "artist_name": "Ol' Dirty Bastard",
+        "hotttnesss": 0.7275
+      },
+      {
+        "song_id": "SOSMXVH12A58A7CA6C",
+        "song_name": "Pienso En Ti",
+        "artist_name": "Shakira",
+        "hotttnesss": 0.7011
+      },
+      {
+        "song_id": "SOPGXXV12AB0183709",
+        "song_name": "Bullet Proof ... I Wish I Was (Acoustic)",
+        "artist_name": "Radiohead",
+        "hotttnesss": 0.6998
+      },
+      {
+        "song_id": "SOKBEGN12A8C142678",
+        "song_name": "Moisture",
+        "artist_name": "Dishwalla",
+        "hotttnesss": 0.6824
+      },
+      {
+        "song_id": "SOLTAOU12A8C1375CB",
+        "song_name": "Fairground (+ Sample)",
+        "artist_name": "Simply Red",
+        "hotttnesss": 0.6738
+      },
+      {
+        "song_id": "SOBKIMB12A8C136DE9",
+        "song_name": "X-Static",
+        "artist_name": "Foo Fighters",
+        "hotttnesss": 0.6726
+      },
+      {
+        "song_id": "SODNUSO12A8C13A9FE",
+        "song_name": "Flat Earth Society (Album Version)",
+        "artist_name": "Bad Religion",
+        "hotttnesss": 0.6719
+      }
+    ]
+  },
+  "1996": {
+    "top_artists": [
+      {
+        "artist_id": "ARW7K0P1187B9B5B47",
+        "artist_name": "Barenaked Ladies",
+        "hotttnesss": 0.7943
+      },
+      {
+        "artist_id": "ARFWL8S1187B9B4B44",
+        "artist_name": "Céline Dion",
+        "hotttnesss": 0.6637
+      },
+      {
+        "artist_id": "AR9C8IE1187B9ACC99",
+        "artist_name": "System of a Down",
+        "hotttnesss": 0.6093
+      },
+      {
+        "artist_id": "AR4L4WQ1187FB51996",
+        "artist_name": "The Prodigy",
+        "hotttnesss": 0.6014
+      },
+      {
+        "artist_id": "ARLSF8H1187B9A76B0",
+        "artist_name": "Dimmu Borgir",
+        "hotttnesss": 0.5996
+      },
+      {
+        "artist_id": "AR9W3X91187FB3994C",
+        "artist_name": "Phil Collins",
+        "hotttnesss": 0.5783
+      },
+      {
+        "artist_id": "AR3MSAN1187B98F06B",
+        "artist_name": "OutKast",
+        "hotttnesss": 0.5745
+      },
+      {
+        "artist_id": "ARAZCWP129462A97F1",
+        "artist_name": "Bob Marley",
+        "hotttnesss": 0.5701
+      },
+      {
+        "artist_id": "AR8BUVM1187FB4D94D",
+        "artist_name": "Belle and Sebastian",
+        "hotttnesss": 0.565
+      },
+      {
+        "artist_id": "AR40GSU1187FB3AA01",
+        "artist_name": "Neil Diamond",
+        "hotttnesss": 0.564
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOHQAKK12A8C131323",
+        "song_name": "War?",
+        "artist_name": "System of a Down",
+        "hotttnesss": 0.8499
+      },
+      {
+        "song_id": "SOHHJYE12A8AE47599",
+        "song_name": "Firestarter",
+        "artist_name": "The Prodigy",
+        "hotttnesss": 0.83
+      },
+      {
+        "song_id": "SOEEESC12AB01835B1",
+        "song_name": "I Could Be Dreaming",
+        "artist_name": "Belle and Sebastian",
+        "hotttnesss": 0.8156
+      },
+      {
+        "song_id": "SOARSSE12A58A7BA9A",
+        "song_name": "Wailin'",
+        "artist_name": "OutKast",
+        "hotttnesss": 0.7697
+      },
+      {
+        "song_id": "SOMRYSL12AB01852A8",
+        "song_name": "Ahead By A Century",
+        "artist_name": "The Tragically Hip",
+        "hotttnesss": 0.7662
+      },
+      {
+        "song_id": "SOQDFVR12A8C13A3EF",
+        "song_name": "Wing",
+        "artist_name": "Patti Smith",
+        "hotttnesss": 0.7367
+      },
+      {
+        "song_id": "SOGEMNI12A8C13A780",
+        "song_name": "Guys Do It All The Time",
+        "artist_name": "Mindy McCready",
+        "hotttnesss": 0.7296
+      },
+      {
+        "song_id": "SOAGXBV12A6D4F70BD",
+        "song_name": "Ulcer Breakout",
+        "artist_name": "Butthole Surfers",
+        "hotttnesss": 0.7153
+      },
+      {
+        "song_id": "SORUWYJ12AB0181EBF",
+        "song_name": "Empty Arms",
+        "artist_name": "Stevie Ray Vaughan And Double Trouble",
+        "hotttnesss": 0.6935
+      },
+      {
+        "song_id": "SONSNRE12A6D4FA2F7",
+        "song_name": "Happy Cycling",
+        "artist_name": "Boards of Canada",
+        "hotttnesss": 0.6855
+      }
+    ]
+  },
+  "1997": {
+    "top_artists": [
+      {
+        "artist_id": "AR6PJ8R1187FB5AD70",
+        "artist_name": "Shakira",
+        "hotttnesss": 0.8042
+      },
+      {
+        "artist_id": "ARKSZW81187B9B695D",
+        "artist_name": "Mariah Carey",
+        "hotttnesss": 0.787
+      },
+      {
+        "artist_id": "ARKSZW81187B9B695D",
+        "artist_name": "Mariah Carey Featuring Da Brat & JD",
+        "hotttnesss": 0.787
+      },
+      {
+        "artist_id": "ARH6W4X1187B99274F",
+        "artist_name": "Radiohead",
+        "hotttnesss": 0.6837
+      },
+      {
+        "artist_id": "AR5FP401187FB523C9",
+        "artist_name": "Bob Dylan",
+        "hotttnesss": 0.6333
+      },
+      {
+        "artist_id": "ARIFGKC1187B9B04D5",
+        "artist_name": "Dean Martin",
+        "hotttnesss": 0.624
+      },
+      {
+        "artist_id": "ARXSABJ1187FB3C336",
+        "artist_name": "Deftones",
+        "hotttnesss": 0.6017
+      },
+      {
+        "artist_id": "ARSE5NP1187B9B98AB",
+        "artist_name": "Twista",
+        "hotttnesss": 0.5938
+      },
+      {
+        "artist_id": "ARA3I0J1187FB57869",
+        "artist_name": "Blink-182",
+        "hotttnesss": 0.5823
+      },
+      {
+        "artist_id": "AR74Q3R1187B9B24C3",
+        "artist_name": "Nightwish",
+        "hotttnesss": 0.5803
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOJEVZW12A8C133988",
+        "song_name": "Waiting",
+        "artist_name": "Porcupine Tree",
+        "hotttnesss": 0.8252
+      },
+      {
+        "song_id": "SOSYMSX12A6310DFE2",
+        "song_name": "Subterranean Homesick Alien",
+        "artist_name": "Radiohead",
+        "hotttnesss": 0.775
+      },
+      {
+        "song_id": "SONRWFT12A6D4F983A",
+        "song_name": "Dig Up Her Bones",
+        "artist_name": "The Misfits",
+        "hotttnesss": 0.7749
+      },
+      {
+        "song_id": "SORKKTY12A8C132F3E",
+        "song_name": "The Door",
+        "artist_name": "Silverchair",
+        "hotttnesss": 0.7388
+      },
+      {
+        "song_id": "SOHHVXI12A6D4F69E3",
+        "song_name": "Intro",
+        "artist_name": "Diamond D",
+        "hotttnesss": 0.7203
+      },
+      {
+        "song_id": "SOOJCHC12A6D4F81E1",
+        "song_name": "Think About Me",
+        "artist_name": "Sister Hazel",
+        "hotttnesss": 0.7072
+      },
+      {
+        "song_id": "SOWEZBD12A6D4F8143",
+        "song_name": "Sacred",
+        "artist_name": "Moonspell",
+        "hotttnesss": 0.6931
+      },
+      {
+        "song_id": "SOCKUUJ12A6D4FA41C",
+        "song_name": "Lotion (LP Version)",
+        "artist_name": "Deftones",
+        "hotttnesss": 0.6905
+      },
+      {
+        "song_id": "SOYTUNS12A8C134C16",
+        "song_name": "Honey",
+        "artist_name": "Mariah Carey",
+        "hotttnesss": 0.6791
+      },
+      {
+        "song_id": "SODPLYE12AB01898FB",
+        "song_name": "A New Hope",
+        "artist_name": "Blink-182",
+        "hotttnesss": 0.6742
+      }
+    ]
+  },
+  "1998": {
+    "top_artists": [
+      {
+        "artist_id": "ARTH9041187FB43E1F",
+        "artist_name": "Eminem",
+        "hotttnesss": 0.8792
+      },
+      {
+        "artist_id": "AR6PJ8R1187FB5AD70",
+        "artist_name": "Shakira",
+        "hotttnesss": 0.8042
+      },
+      {
+        "artist_id": "ARDCFNZ1187FB3DDB0",
+        "artist_name": "Enrique Iglesias",
+        "hotttnesss": 0.7529
+      },
+      {
+        "artist_id": "AR6PJ8R1187FB5AD70",
+        "artist_name": "Shakira",
+        "hotttnesss": 0.7172
+      },
+      {
+        "artist_id": "ARVNGA71187FB3C107",
+        "artist_name": "Faith Hill",
+        "hotttnesss": 0.6701
+      },
+      {
+        "artist_id": "ARQRQRA12131B4B5A8",
+        "artist_name": "Cake",
+        "hotttnesss": 0.6507
+      },
+      {
+        "artist_id": "ARNZ70R1187B9A4824",
+        "artist_name": "Joe Satriani",
+        "hotttnesss": 0.6222
+      },
+      {
+        "artist_id": "ARFVYJI1187B9B8E13",
+        "artist_name": "Pearl Jam",
+        "hotttnesss": 0.608
+      },
+      {
+        "artist_id": "ARYJSY01187B9B7C65",
+        "artist_name": "Dolly Parton",
+        "hotttnesss": 0.6039
+      },
+      {
+        "artist_id": "ARAIABB1187B9AC6E2",
+        "artist_name": "Seal",
+        "hotttnesss": 0.58
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOFCKEK12A8AE46966",
+        "song_name": "Like It Like That",
+        "artist_name": "A Tribe Called Quest",
+        "hotttnesss": 0.8189
+      },
+      {
+        "song_id": "SOPPBPK12A8C14683C",
+        "song_name": "Secret Smile",
+        "artist_name": "Semisonic",
+        "hotttnesss": 0.7752
+      },
+      {
+        "song_id": "SOGRSAV12A6701FBBD",
+        "song_name": "Just Don't Give A Fuck",
+        "artist_name": "Eminem",
+        "hotttnesss": 0.743
+      },
+      {
+        "song_id": "SOLVZZO12A8C130E19",
+        "song_name": "Give It Up Or Let Me Go",
+        "artist_name": "Dixie Chicks",
+        "hotttnesss": 0.7239
+      },
+      {
+        "song_id": "SOJCBAM12A6701FD04",
+        "song_name": "Paralyzed",
+        "artist_name": "The Cardigans",
+        "hotttnesss": 0.7174
+      },
+      {
+        "song_id": "SODAKWB12A8C12FFBE",
+        "song_name": "A Man Holdin' On (To A Woman Lettin' Go)",
+        "artist_name": "Ty Herndon",
+        "hotttnesss": 0.6962
+      },
+      {
+        "song_id": "SORKWDV12A8C13B43B",
+        "song_name": "From Afar (Album Version)",
+        "artist_name": "Van Halen",
+        "hotttnesss": 0.6854
+      },
+      {
+        "song_id": "SOVQWEN12A8C141BD9",
+        "song_name": "Damien",
+        "artist_name": "DMX",
+        "hotttnesss": 0.6782
+      },
+      {
+        "song_id": "SOUMWOQ12A8C13A949",
+        "song_name": "Lake Of Dreams",
+        "artist_name": "Lisa Lynne",
+        "hotttnesss": 0.6739
+      },
+      {
+        "song_id": "SOMBTZH12A8C13BB75",
+        "song_name": "Corner Story",
+        "artist_name": "Del The Funky Homosapien",
+        "hotttnesss": 0.6665
+      }
+    ]
+  },
+  "1999": {
+    "top_artists": [
+      {
+        "artist_id": "ARJ7KF01187B98D717",
+        "artist_name": "Coldplay",
+        "hotttnesss": 0.9161
+      },
+      {
+        "artist_id": "ARTH9041187FB43E1F",
+        "artist_name": "Eminem",
+        "hotttnesss": 0.8792
+      },
+      {
+        "artist_id": "ARPDVPJ1187B9ADBE9",
+        "artist_name": "Usher",
+        "hotttnesss": 0.8546
+      },
+      {
+        "artist_id": "ARPDVPJ1187B9ADBE9",
+        "artist_name": "Usher",
+        "hotttnesss": 0.8512
+      },
+      {
+        "artist_id": "ARVNGA71187FB3C107",
+        "artist_name": "Faith Hill & Tim McGraw",
+        "hotttnesss": 0.6701
+      },
+      {
+        "artist_id": "ARW1MUW1187FB4D5A1",
+        "artist_name": "3 Doors Down",
+        "hotttnesss": 0.643
+      },
+      {
+        "artist_id": "ARF3GX71187FB3EB66",
+        "artist_name": "Martina McBride",
+        "hotttnesss": 0.6282
+      },
+      {
+        "artist_id": "ARO4WQR1187B9B9825",
+        "artist_name": "Kenny Rogers",
+        "hotttnesss": 0.62
+      },
+      {
+        "artist_id": "ARW1MUW1187FB4D5A1",
+        "artist_name": "3 Doors Down",
+        "hotttnesss": 0.6088
+      },
+      {
+        "artist_id": "ARK9TRQ1187B99C095",
+        "artist_name": "Nine Inch Nails",
+        "hotttnesss": 0.5985
+      }
+    ],
+    "top_songs": [
+      {
+        "song_id": "SOYYIZT12A8C1408CA",
+        "song_name": "Next Year",
+        "artist_name": "Foo Fighters",
+        "hotttnesss": 0.8043
+      },
+      {
+        "song_id": "SOUCKDH12A8C138FF5",
+        "song_name": "Don't Panic",
+        "artist_name": "Coldplay",
+        "hotttnesss": 0.7819
+      },
+      {
+        "song_id": "SOCOZST12A67020452",
+        "song_name": "Parallel Universe (Album Version)",
+        "artist_name": "Red Hot Chili Peppers",
+        "hotttnesss": 0.7733
+      },
+      {
+        "song_id": "SORQTDS12AB0186ED3",
+        "song_name": "Girls All Pause",
+        "artist_name": "Kurupt",
+        "hotttnesss": 0.7626
+      },
+      {
+        "song_id": "SOENDOQ12A8C139A41",
+        "song_name": "Isla del Luna",
+        "artist_name": "Lisa Lynne",
+        "hotttnesss": 0.7613
+      },
+      {
+        "song_id": "SOCOMUU12A6D4F8518",
+        "song_name": "Adnans",
+        "artist_name": "Orbital",
+        "hotttnesss": 0.7543
+      },
+      {
+        "song_id": "SONAEER12A67020459",
+        "song_name": "Emit Remmus (Album Version)",
+        "artist_name": "Red Hot Chili Peppers",
+        "hotttnesss": 0.7345
+      },
+      {
+        "song_id": "SORRGXW12A8C139847",
+        "song_name": "Lovely Day",
+        "artist_name": "Lit",
+        "hotttnesss": 0.7215
+      },
+      {
+        "song_id": "SOVDYQP12AB01824EC",
+        "song_name": "Hole In My Head",
+        "artist_name": "Dixie Chicks",
+        "hotttnesss": 0.7063
+      },
+      {
+        "song_id": "SOJMXIM12A6D4FB4FC",
+        "song_name": "Sometimes",
+        "artist_name": "Les Rythmes Digitales feat. Nik Kershaw",
+        "hotttnesss": 0.6999
+      }
+    ]
+  }
+}

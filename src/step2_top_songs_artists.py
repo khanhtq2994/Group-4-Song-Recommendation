@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Bước 2 - Tìm top 10 bài hát và top 10 nghệ sĩ "hot" nhất của từng năm bằng Spark.
+Step 2 - Find top 10 "hottest" songs and top 10 "hottest" artists for each year using Spark.
 
-Tương ứng Box 11.5 trong sách. Các bước map / filter / distinct / sortByKey / take
-được giữ nguyên tinh thần của sách, chỉ sửa cho Python 3 (không còn .encode('utf-8'))
-và tách dòng CSV bằng module csv thay cho split(",").
+Corresponds to Box 11.5 in the book. map / filter / distinct / sortByKey / take steps
+retain the spirit of the book, only modified for Python 3 (no longer using .encode('utf-8'))
+and splitting CSV lines using the csv module instead of split(",").
 
-Cách chạy:
+How to run:
     python3 src/step2_top_songs_artists.py --input data/songs.csv \
         --from-year 1990 --to-year 1999
-    (hoặc: spark-submit --py-files src/common.py src/step2_top_songs_artists.py ...)
+    (or: spark-submit --py-files src/common.py src/step2_top_songs_artists.py ...)
 """
 
 import argparse
@@ -24,18 +24,18 @@ IDX = common.IDX
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Top bài hát / nghệ sĩ theo năm")
+    parser = argparse.ArgumentParser(description="Top songs / artists by year")
     parser.add_argument("--input", default="data/songs.csv")
     parser.add_argument("--from-year", type=int, default=1990)
     parser.add_argument("--to-year", type=int, default=1999)
     parser.add_argument("--top", type=int, default=common.DEFAULT_TOP_N)
     parser.add_argument("--output-json", default="",
-                        help="Ghi kết quả ra file JSON (tuỳ chọn)")
+                        help="Output JSON file (optional)")
     args = parser.parse_args()
 
     sc = common.make_spark_context("TopSongsAndArtists")
     try:
-        # step1 + step2 của sách: đọc file, tách trường, bỏ dòng rỗng / header
+        # step1 + step2 of the book: read file, split fields, remove empty lines / header
         rows = (sc.textFile("file://" + os.path.abspath(args.input))
                   .map(common.parse_csv_line)
                   .filter(common.is_data_row))
@@ -45,7 +45,7 @@ def main():
         ).cache()
 
         # step4: (artist_id, artist_name, artist_hotttnesss, year) + distinct()
-        # vì một nghệ sĩ có nhiều bài, không distinct sẽ bị lặp khi xếp hạng.
+        # an artist may have multiple songs, without distinct() it will be repeated when ranking.
         artists = in_range.map(lambda f: (
             f[IDX["artist_id"]],
             f[IDX["artist_name"]],
@@ -64,12 +64,12 @@ def main():
 
         result = {}
         for year in range(args.from_year, args.to_year + 1):
-            # step5/step6: đổi key sang hotttnesss rồi sortByKey giảm dần + take(10)
+            # step5/step6: swap key to hotttnesss then sortByKey descending + take(10)
             top_artists = (artists.filter(lambda t, y=year: t[3] == y)
                                   .map(lambda t: (t[2], (t[0], t[1])))
                                   .sortByKey(False)
                                   .take(args.top))
-            # step9/step10: tương tự cho bài hát
+            # step9/step10: similarly for songs
             top_songs = (songs.filter(lambda t, y=year: t[3] == y)
                               .map(lambda t: (t[2], (t[0], t[1], t[4])))
                               .sortByKey(False)
@@ -83,14 +83,14 @@ def main():
                                "hotttnesss": round(s[0], 4)} for s in top_songs],
             }
 
-            print("\n=== Năm %d ===" % year)
+            print("\n=== Year %d ===" % year)
             if not top_artists and not top_songs:
-                print("  (không có dữ liệu)")
+                print("  (no data)")
                 continue
-            print("  Top %d nghệ sĩ:" % args.top)
+            print("  Top %d artists:" % args.top)
             for rank, a in enumerate(top_artists, 1):
                 print("    %2d. %-35s hotttnesss=%.4f" % (rank, a[1][1][:35], a[0]))
-            print("  Top %d bài hát:" % args.top)
+            print("  Top %d songs:" % args.top)
             for rank, s in enumerate(top_songs, 1):
                 print("    %2d. %-35s | %-25s hotttnesss=%.4f"
                       % (rank, s[1][1][:35], s[1][2][:25], s[0]))
@@ -99,7 +99,7 @@ def main():
             os.makedirs(os.path.dirname(os.path.abspath(args.output_json)), exist_ok=True)
             with open(args.output_json, "w", encoding="utf-8") as f:
                 json.dump(result, f, ensure_ascii=False, indent=2)
-            print("\nĐã ghi kết quả vào %s" % args.output_json)
+            print("\nResults written to %s" % args.output_json)
     finally:
         sc.stop()
 

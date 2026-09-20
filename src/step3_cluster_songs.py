@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-Bước 3 - Gom cụm các bài hát bằng K-Means (Spark MLlib).
+Step 3 - Group songs using K-Means (Spark MLlib).
 
-Tương ứng Box 11.6 trong sách: gom 10 cụm theo đặc trưng âm thanh, ghi tâm cụm ra
-file pickle và ghi lại dataset kèm số hiệu cụm của từng bài.
+Corresponds to Box 11.6 in the book: group 10 clusters by audio features, save cluster centers to
+pickle file and write dataset with cluster number for each song.
 
-Khác biệt so với sách:
-  * Tham số `runs` đã bị bỏ từ Spark 2.0 -> không dùng nữa.
-  * Chuẩn hoá z-score trước khi gom cụm (loudness dB, tempo BPM và các confidence
-    có thang đo rất lệch nhau; không chuẩn hoá thì tempo chi phối khoảng cách).
-  * Lưu thêm mean/std vào pickle để bước 4 dùng lại đúng không gian đặc trưng.
+Differences from the book:
+  * The `runs` parameter has been removed since Spark 2.0 -> no longer used.
+  * Z-score normalization before clustering (loudness dB, tempo BPM and confidences
+    have very different scales; without normalization, tempo dominates the distance).
+  * Save mean/std to pickle for step 4 to use the same feature space.
 
-Cách chạy:
+How to run:
     python3 src/step3_cluster_songs.py --input data/songs.csv --k 10 --overwrite
 """
 
@@ -27,12 +27,12 @@ from pyspark.mllib.clustering import KMeans
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Gom cụm bài hát bằng K-Means")
+    parser = argparse.ArgumentParser(description="Group songs using K-Means")
     parser.add_argument("--input", default="data/songs.csv")
     parser.add_argument("--output", default="data/songs_clustered",
-                        help="Thư mục Spark ghi dataset đã gán cụm")
+                        help="Output directory from step 3")
     parser.add_argument("--model", default="data/kmeans_model.p",
-                        help="File pickle chứa tâm cụm (cf. cluster_centers.p)")
+                        help="Pickle file containing cluster centers (cf. cluster_centers.p)")
     parser.add_argument("--k", type=int, default=common.DEFAULT_K)
     parser.add_argument("--max-iterations", type=int, default=100)
     parser.add_argument("--seed", type=int, default=42)
@@ -63,9 +63,9 @@ def main():
                              seed=args.seed)
         centers = [[float(x) for x in c] for c in model.clusterCenters]
         wssse = model.computeCost(scaled)
-        print("\nWSSSE (tổng bình phương khoảng cách tới tâm cụm) = %.4f" % wssse)
+        print("\nWSSSE (sum of squared distances to cluster centers) = %.4f" % wssse)
 
-        # Lưu tâm cụm + tham số chuẩn hoá (sách: pickle.dump(cc, ...))
+        # Save cluster centers + normalization parameters (book: pickle.dump(cc, ...))
         common.save_model(args.model, {
             "feature_cols": common.FEATURE_COLS,
             "k": args.k,
@@ -76,9 +76,9 @@ def main():
             "n_songs": n,
             "created_at": datetime.datetime.now().isoformat(timespec="seconds"),
         })
-        print("Đã lưu model vào %s" % args.model)
+        print("Model saved to %s" % args.model)
 
-        # Gán cụm cho từng bài rồi ghi lại CSV kèm cột 'cluster'
+        # Assign clusters to each song and write CSV with 'cluster' column
         bc = sc.broadcast({"centers": centers, "mean": mean, "std": std})
 
         def assign(fields):
@@ -88,13 +88,13 @@ def main():
 
         assigned = rows.map(assign).cache()
         assigned.map(common.to_csv_line).saveAsTextFile("file://" + os.path.abspath(args.output))
-        print("Đã ghi dataset đã gán cụm vào %s/" % args.output)
+        print("Dataset with clusters assigned has been written to %s/" % args.output)
 
-        print("\nKích thước từng cụm:")
+        print("\nCluster sizes:")
         sizes = assigned.map(lambda f: (f[-1], 1)).reduceByKey(lambda a, b: a + b).collectAsMap()
         for cid in sorted(sizes):
             center = [round(x, 3) for x in centers[cid]]
-            print("  cụm %2d: %5d bài   tâm(z-score)=%s" % (cid, sizes[cid], center))
+            print("  cluster %2d: %5d songs   center(z-score)=%s" % (cid, sizes[cid], center))
     finally:
         sc.stop()
 

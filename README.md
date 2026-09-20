@@ -1,140 +1,149 @@
 # Case Study: Song Recommendation System (Spark)
 
-Bài thực hành trên lớp — môn *Big Data analytics algorithms* (lec05.2).
-Code mẫu viết theo mục **11.3** của Bahga & Madisetti, *Big Data Science & Analytics:
-A Hands-On Approach* (Box 11.4 → Box 11.7), cập nhật cho **Python 3 + Spark 3.x**.
+This is a class practice project for the *Big Data Analytics Algorithms* course.
+The codebase is inspired by Section 11.3 of Bahga & Madisetti, *Big Data Science & Analytics: A Hands-On Approach* (Box 11.4 → Box 11.7), updated for **Python 3 + Spark 3.x**.
 
-Hệ thống dùng **content-based filtering**: không cần lịch sử nghe / rating của người
-dùng, chỉ dựa trên đặc trưng âm thanh của bài hát trong Million Song Dataset.
+The system utilizes **content-based filtering**: it does not require user listening history or ratings. Instead, it relies solely on the audio features of songs extracted from the Million Song Dataset.
 
-## 1. Luồng xử lý (Figure 11.10)
+## 1. Flow
 
-```
+```text
    File .h5 (Million Song Subset)
-              │  bước 1  (Box 11.4)
+              │  Step 1 (Box 11.4)
               ▼
-   data/songs.csv   ──────────────► bước 2 (Box 11.5): top 10 bài / nghệ sĩ mỗi năm
-              │  bước 3  (Box 11.6)
+   data/songs.csv   ──────────────► Step 2 (Box 11.5): Top 10 songs/artists per year
+              │  Step 3 (Box 11.6)
               ▼
-   K-Means (k = 10) trên 4 đặc trưng
+   K-Means (k = 10) on 4 features
               │
-              ├─► data/kmeans_model.p     (tâm cụm + tham số chuẩn hoá)
-              └─► data/songs_clustered/   (dataset + cột `cluster`)
-                          │  bước 4  (Box 11.7)
+              ├─► data/kmeans_model.p     (Cluster centers + normalization params)
+              └─► data/songs_clustered/   (Dataset + `cluster` column)
+                          │  Step 4 (Box 11.7)
                           ▼
-     bài hát đầu vào → tra cụm → tính khoảng cách với các bài CÙNG cụm
-                     → sắp xếp tăng dần → top 10 bài tương tự
+     Input song → Find cluster → Calculate distance with songs in the SAME cluster
+                → Sort ascendingly → Top 10 similar songs
 ```
 
-Ý tưởng cốt lõi: gom cụm trước để **thu hẹp không gian tìm kiếm** (chỉ so sánh trong
-1/k dataset), nhờ đó việc gợi ý có thể chạy gần thời gian thực.
+**Core Idea**: Pre-cluster the data to **narrow down the search space** (only compare within 1/k of the dataset), allowing the recommendation process to run in near real-time.
 
-## 2. Cấu trúc thư mục
+## 2. Folder Structure
 
-| File | Vai trò | Box trong sách |
+| File | Role | Book Reference |
 |---|---|---|
-| [src/common.py](src/common.py) | Lược đồ CSV, đặc trưng, hàm khoảng cách, tiện ích Spark | — |
-| [src/step1_extract_h5_to_csv.py](src/step1_extract_h5_to_csv.py) | Đọc file HDF5 → CSV metadata | Box 11.4 |
-| [src/step2_top_songs_artists.py](src/step2_top_songs_artists.py) | Top 10 bài hát / nghệ sĩ mỗi năm | Box 11.5 |
-| [src/step3_cluster_songs.py](src/step3_cluster_songs.py) | Gom cụm K-Means bằng Spark MLlib | Box 11.6 |
-| [src/step4_recommend_songs.py](src/step4_recommend_songs.py) | Gợi ý bài hát tương tự | Box 11.7 |
-| [src/tools/make_demo_csv.py](src/tools/make_demo_csv.py) | Sinh dữ liệu giả để chạy thử khi chưa có dataset | — |
-| [src/tools/selftest_no_spark.py](src/tools/selftest_no_spark.py) | Chạy lại logic bước 3–4 bằng Python thuần (không cần Spark) | — |
+| [src/common.py](src/common.py) | CSV schema, features, distance functions, Spark utilities | — |
+| [src/step1_extract_h5_to_csv.py](src/step1_extract_h5_to_csv.py) | Extract HDF5 → CSV metadata | Box 11.4 |
+| [src/step2_top_songs_artists.py](src/step2_top_songs_artists.py) | Find top 10 songs / artists per year | Box 11.5 |
+| [src/step3_cluster_songs.py](src/step3_cluster_songs.py) | K-Means clustering using Spark MLlib | Box 11.6 |
+| [src/step4_recommend_songs.py](src/step4_recommend_songs.py) | Recommend similar songs | Box 11.7 |
+| [src/tools/make_demo_csv.py](src/tools/make_demo_csv.py) | Generate mock data for testing without the full dataset | — |
+| [src/tools/selftest_no_spark.py](src/tools/selftest_no_spark.py) | Re-run logic for steps 3–4 in pure Python (no Spark needed) | — |
 
-Định dạng CSV (bước 1 sinh ra, có dòng header):
-
-```
+**CSV Format** (Generated in Step 1, includes header):
+```csv
 artist_id, artist_name, song_id, song_name, loudness, song_hotttnesss,
 tempo, key_confidence, mode_confidence, year, artist_hotttnesss, duration
 ```
+The first 10 columns maintain the order from the book; the last 2 columns were added for artist ranking and display purposes.
 
-10 cột đầu giữ đúng thứ tự như sách; 2 cột cuối thêm vào để xếp hạng nghệ sĩ và hiển thị.
+## 3. Environment Setup (Docker Workspace)
 
-## 3. Cài đặt
+Since this project is located inside the `BDA501-Spark-Lab/workspace` directory, the global Spark container provided by the lab can be utilized. There is no need to set up a separate Spark cluster.
 
-```bash
-# JDK cho Spark (chọn 1 trong 2)
-brew install openjdk@17        # macOS
-sudo apt install openjdk-17-jdk # Ubuntu
+1. Start the main lab's Spark container (from the `BDA501-Spark-Lab` directory):
+   ```bash
+   cd ../../
+   docker-compose up -d
+   ```
+2. Access the Spark container's shell and navigate to this project:
+   ```bash
+   docker exec -it bda501-spark bash
+   cd Group-4-Song-Recommendation
+   pip install -r requirements.txt
+   ```
+*(Note: The global workspace maps the entire `./workspace` folder into the container, so the code and data are automatically synced!)*
 
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-java -version && python3 -c "import pyspark; print(pyspark.__version__)"
-```
+## 4. Execution Instruction
 
-## 4. Tải dataset
-
-Chỉ dùng **subset 10.000 bài** (≈2 GB) như yêu cầu của đề bài:
+Download the dataset. We use a **subset of 10,000 songs** (≈2 GB) as required by the assignment:
 
 ```bash
 mkdir -p data && cd data
+# Option 1: If using macOS/Linux host
 curl -O http://labrosa.ee.columbia.edu/~dpwe/tmp/millionsongsubset.tar.gz
-tar -xzf millionsongsubset.tar.gz          # → data/MillionSongSubset/
+# Option 2: Alternative if curl is not found (e.g., inside some Docker containers)
+wget http://labrosa.ee.columbia.edu/~dpwe/tmp/millionsongsubset.tar.gz
+
+tar -xzf millionsongsubset.tar.gz          # Extracts to data/MillionSongSubset/
 cd ..
 ```
+*(Note: Because the workspace is synced, this download step can be executed directly on the host machine's terminal instead of inside the Docker container.)*
 
-Trang chính thức: <http://millionsongdataset.com/> (nếu link trên hỏng thì lấy link
-`millionsongsubset.tar.gz` ở mục *Getting the dataset*). Nếu bản tải về có file gộp
-`subset_msd_summary_file.h5` thì trỏ thẳng `--input` vào file đó sẽ nhanh hơn nhiều.
+Official site: <http://millionsongdataset.com/>. If the downloaded version contains the aggregated `subset_msd_summary_file.h5`, pointing `--input` directly to it will significantly speed up Step 1.
 
-## 5. Chạy từng bước
+## 5. Execute Pipeline
+
+Run the following commands inside the Spark container (or the local environment if dependencies are installed):
 
 ```bash
-# Bước 1 — HDF5 → CSV  (thêm --limit 500 để thử nhanh)
-python3 src/step1_extract_h5_to_csv.py --input data/MillionSongSubset --output data/songs.csv
+# Step 1 — HDF5 to CSV (Add --limit 500 for a quick test)
+python3 src/step1_extract_h5_to_csv.py --input data/MillionSongSubset --output output_evidence/songs.csv
 
-# Bước 2 — Top 10 bài hát / nghệ sĩ theo từng năm
-python3 src/step2_top_songs_artists.py --input data/songs.csv \
-    --from-year 1990 --to-year 1999 --output-json data/top_by_year.json
+# Step 2 — Top 10 songs / artists by year
+python3 src/step2_top_songs_artists.py --input output_evidence/songs.csv \
+    --from-year 1990 --to-year 1999 --output-json output_evidence/top_by_year.json
 
-# Bước 3 — Gom cụm K-Means (k = 10)
-python3 src/step3_cluster_songs.py --input data/songs.csv --k 10 --overwrite
+# Step 3 — K-Means Clustering (k = 10)
+python3 src/step3_cluster_songs.py --input output_evidence/songs.csv --k 10 --overwrite
 
-# Bước 4 — Gợi ý 10 bài tương tự
+# Step 4 — Recommend 10 similar songs
 python3 src/step4_recommend_songs.py --song-id SOICLQB12A8C13637C --top 10
-python3 src/step4_recommend_songs.py --title "Exodus" --output-json data/recommend.json
-python3 src/step4_recommend_songs.py --random --metric book   # dùng công thức của sách
+python3 src/step4_recommend_songs.py --title "Exodus" --output-json output_evidence/recommend.json
+python3 src/step4_recommend_songs.py --random --metric book   # Use the book's specific formula
 ```
 
-Chạy trên cụm Spark thật thì thay bằng:
-
+If running on a real Spark cluster (YARN), submit the job like this:
 ```bash
 spark-submit --master yarn --py-files src/common.py src/step3_cluster_songs.py --input hdfs:///songs.csv
 ```
 
-### Chạy thử khi chưa có dataset
+## 6. Verification
+
+To quickly test the logic without downloading the 2GB dataset, mock data can be generated:
 
 ```bash
+# 1. Generate demo dataset
 python3 src/tools/make_demo_csv.py --output data/songs_demo.csv --n 2000
-python3 src/tools/selftest_no_spark.py --input data/songs_demo.csv   # không cần Java
+
+# 2. Verify logic using pure Python (No Spark/Java required)
+python3 src/tools/selftest_no_spark.py --input data/songs_demo.csv
+
+# 3. Test Spark clustering with the demo data
 python3 src/step3_cluster_songs.py --input data/songs_demo.csv --overwrite
+
+# 4. Test recommendations
 python3 src/step4_recommend_songs.py --random
 ```
 
-## 6. Những chỗ sửa so với code trong sách (nên nêu trong báo cáo)
+## 7. Technical Note
 
-| Sách (2016, Python 2 / Spark 1.x) | Code này | Lý do |
+The following modifications were made compared to the original code in the textbook to modernize the implementation:
+
+| Book (2016, Python 2 / Spark 1.x) | This Repository | Rationale |
 |---|---|---|
-| `print x`, `line.encode('utf-8')` | cú pháp Python 3 | sách viết cho Python 2 |
-| `KMeans.train(..., runs=100)` | bỏ `runs` | tham số này đã bị gỡ từ Spark 2.0 |
-| `line.split(",")` | `csv.reader` | tên bài hát/nghệ sĩ có dấu phẩy → lệch cột |
-| Gom cụm trên giá trị gốc | chuẩn hoá z-score trước khi gom cụm | loudness (dB), tempo (BPM), confidence (0–1) lệch thang đo, nếu không chuẩn hoá thì tempo chi phối toàn bộ khoảng cách |
-| Đặc trưng: loudness, song_hotttnesss, tempo, key_confidence | loudness, tempo, key_confidence, mode_confidence | `song_hotttnesss` bị NaN ở rất nhiều bài trong subset (sửa `FEATURE_COLS` trong `common.py` nếu muốn giống hệt sách) |
-| `hdf5_getters` (module phụ của MSD) | đọc trực tiếp bằng `h5py` | không phải tải thêm file, đọc được cả file summary gộp |
-| `euclid_dist` (cosine + chênh lệch độ lớn) | mặc định Euclid trên không gian chuẩn hoá, giữ công thức sách ở `--metric book` | công thức của sách cộng thêm `cosine²` nên hai bài **cùng hướng** lại bị coi là xa nhau — giữ lại để đối chiếu |
-| Lặp qua toàn bộ bài hát để demo | nhận `--song-id` / `--title` từ dòng lệnh | đúng mô tả "user provides a song-ID as input" |
+| `print x`, `line.encode('utf-8')` | Python 3 syntax | The book was written for Python 2. |
+| `KMeans.train(..., runs=100)` | Removed `runs` parameter | This parameter was deprecated and removed in Spark 2.0. |
+| `line.split(",")` | Used `csv.reader` | Song/Artist names containing commas caused column misalignment. |
+| Clustered on raw values | Z-score normalization before clustering | Features like loudness (dB), tempo (BPM), and confidence (0–1) are on vastly different scales. Without normalization, tempo dominates the distance metric. |
+| Features: loudness, song_hotttnesss, tempo, key_confidence | loudness, tempo, key_confidence, mode_confidence | `song_hotttnesss` has NaN values in many subset songs (Modify `FEATURE_COLS` in `common.py` to match the book exactly if desired). |
+| `hdf5_getters` (MSD sub-module) | Read directly via `h5py` | Eliminates the need to download extra files and supports reading the aggregated summary file. |
+| `euclid_dist` (cosine + magnitude diff) | Default Euclidean on normalized space; kept book's formula under `--metric book` | The book's formula adds `cosine²`, causing two songs in the **same direction** to be considered far apart. Retained strictly for comparison. |
+| Iterated over all songs for demo | Accepts `--song-id` / `--title` from CLI | Aligns with the textbook description: "user provides a song-ID as input". |
 
-## 7. Gợi ý mở rộng
+## 8. AI Tools
 
-* Chọn `k` bằng phương pháp *elbow*: chạy bước 3 với `--k` từ 2→20 rồi vẽ WSSSE.
-* Thêm đặc trưng: `duration`, `time_signature`, hoặc trung bình các `segments_timbre`.
-* So sánh với **collaborative filtering** (`pyspark.ml.recommendation.ALS`) trên
-  Taste Profile subset của MSD — phần sách nêu ở đầu mục 11.3.
-* Đánh giá chất lượng: kiểm tra tỉ lệ bài gợi ý cùng nghệ sĩ / cùng thể loại (tag Last.fm).
-* Viết bằng API hiện đại `pyspark.ml` (DataFrame + `VectorAssembler` + `StandardScaler`
-  + `KMeans`) thay cho `pyspark.mllib` (RDD, đang ở chế độ maintenance).
+- **Google Gemini 3.1 Pro**: Used for code review, documentation structuring, translation, and generating the Docker Compose configuration to ensure a professional and reproducible setup.
 
-## 8. Tài liệu tham khảo
+## 9. Acknowledgements
 
-1. A. Bahga, V. Madisetti. *Big Data Science & Analytics: A Hands-On Approach*, mục 11.3.
+1. A. Bahga, V. Madisetti. *Big Data Science & Analytics: A Hands-On Approach*, Section 11.3.
 2. T. Bertin-Mahieux, D. P. W. Ellis, B. Whitman, P. Lamere. *The Million Song Dataset*, ISMIR 2011.

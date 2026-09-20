@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Chạy lại logic của bước 3 và bước 4 bằng Python thuần (không cần Spark/Java) trên
-file CSV mẫu - dùng để kiểm tra nhanh phần tính toán trước khi chạy job Spark thật.
+Run the logic of steps 3 and 4 using plain Python (no Spark/Java needed) on the
+sample CSV file - used to quickly test the computation part before running
+the real Spark job.
 
     python3 src/tools/make_demo_csv.py --output data/songs_demo.csv --n 500
     python3 src/tools/selftest_no_spark.py --input data/songs_demo.csv
@@ -17,7 +18,7 @@ import common
 
 
 def kmeans(points, k, iterations=50, seed=42):
-    """K-Means tối giản (thay cho MLlib) chỉ để self-test."""
+    """Minimal K-Means (replaces MLlib) for self-testing."""
     rnd = random.Random(seed)
     centers = [list(p) for p in rnd.sample(points, k)]
     for _ in range(iterations):
@@ -47,8 +48,8 @@ def main():
         rows = [common.parse_csv_line(line) for line in f]
     rows = [r for r in rows if common.is_data_row(r)
             and common.valid_vector(common.feature_vector(r))]
-    print("Đọc được %d bài hợp lệ" % len(rows))
-    assert rows, "Không có dữ liệu"
+    print("Read %d valid songs" % len(rows))
+    assert rows, "No data available"
 
     features = [common.feature_vector(r) for r in rows]
     dim = len(features[0])
@@ -62,12 +63,12 @@ def main():
     sizes = {}
     for c in labels:
         sizes[c] = sizes.get(c, 0) + 1
-    print("Kích thước cụm:", dict(sorted(sizes.items())))
+    print("Cluster sizes:", dict(sorted(sizes.items())))
     assert sum(sizes.values()) == n
 
     seed_i = 0
     seed_cluster, seed_vec = labels[seed_i], scaled[seed_i]
-    print("\nBài đầu vào: %s - %s (cụm %d)"
+    print("\nInput song: %s - %s (cluster %d)"
           % (rows[seed_i][common.IDX["song_name"]],
              rows[seed_i][common.IDX["artist_name"]], seed_cluster))
 
@@ -80,9 +81,9 @@ def main():
         for dist, name, artist in scored[:args.top]:
             print("      %.6f  %-30s %s" % (dist, name[:30], artist[:25]))
 
-    # kiểm tra parser CSV với tên bài có dấu phẩy
-    line = common.to_csv_line(["a", "Nghệ sĩ, ft. B", "c", 'Bài "hit", bản live'] + [0] * 8)
-    assert common.parse_csv_line(line)[3] == 'Bài "hit", bản live'
+    # test CSV parser with song names containing commas
+    line = common.to_csv_line(["a", "Artist, ft. B", "c", 'Song "hit", live version'] + [0] * 8)
+    assert common.parse_csv_line(line)[3] == 'Song "hit", live version'
     print("\nSelf-test OK.")
 
 

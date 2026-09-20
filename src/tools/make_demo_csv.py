@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Sinh một file CSV giả lập đúng định dạng của bước 1, để chạy thử bước 2-3-4 khi
-chưa tải xong Million Song Subset (2 GB).
+Generate a CSV file that mimics the format of step 1, to test steps 2-3-4 when
+the Million Song Subset (2 GB) is not yet downloaded.
 
     python3 src/tools/make_demo_csv.py --output data/songs_demo.csv --n 2000
 """
@@ -15,7 +15,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import common
 
-GENRES = [  # (tên, loudness, tempo, key_conf, mode_conf)
+GENRES = [  # (name, loudness, tempo, key_conf, mode_conf)
     ("Ballad", -14.0, 72.0, 0.45, 0.50),
     ("Pop", -8.0, 118.0, 0.60, 0.55),
     ("Dance", -6.0, 128.0, 0.70, 0.60),
@@ -25,7 +25,7 @@ GENRES = [  # (tên, loudness, tempo, key_conf, mode_conf)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Sinh dữ liệu mẫu")
+    parser = argparse.ArgumentParser(description="Generate sample data")
     parser.add_argument("--output", default="data/songs_demo.csv")
     parser.add_argument("--n", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=7)
@@ -39,13 +39,13 @@ def main():
         for i in range(args.n):
             genre, loud, tempo, keyc, modec = GENRES[i % len(GENRES)]
             artist_no = i % 120
-            # song_hotttnesss bị thiếu ở ~30% bài, giống dữ liệu thật
+            # song_hotttnesss is missing in ~30% of songs, like real data
             hot = "nan" if rnd.random() < 0.3 else round(rnd.random(), 4)
             writer.writerow([
                 "ARDEMO%06d" % artist_no,
                 "Artist %03d (%s)" % (artist_no, genre),
                 "SODEMO%06d" % i,
-                "%s song #%d, live" % (genre, i),   # có dấu phẩy để test parser CSV
+                "%s song #%d, live" % (genre, i),   # with comma to test CSV parser
                 round(rnd.gauss(loud, 1.5), 3),
                 hot,
                 round(rnd.gauss(tempo, 6.0), 3),
@@ -55,7 +55,7 @@ def main():
                 round(rnd.random(), 4),
                 round(rnd.gauss(230, 40), 3),
             ])
-    print("Đã sinh %d bài hát mẫu vào %s" % (args.n, args.output))
+    print("Generated %d sample songs into %s" % (args.n, args.output))
 
 
 if __name__ == "__main__":

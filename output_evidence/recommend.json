@@ -1,0 +1,111 @@
+{
+  "name": "Exodus",
+  "artist": "Quincy Jones",
+  "song_id": "SOSRXYE12A8C13E41A",
+  "year": 1988,
+  "cluster": 7,
+  "metric": "euclidean",
+  "date": "2026-09-20T14:26:47",
+  "similar": [
+    {
+      "song_id": "SOCVPCD12AB018E260",
+      "song_name": "Skyline",
+      "artist_name": "Sean Quinn",
+      "artist_id": "ARN5MQ11187B98A12D",
+      "year": 0,
+      "tempo": 111.44,
+      "loudness": -11.74,
+      "distance": 0.160967
+    },
+    {
+      "song_id": "SOHWWOM12AB0186627",
+      "song_name": "Story Of An Artist (Don't Be Scared)",
+      "artist_name": "Daniel Johnston",
+      "artist_id": "AR6CLFP1187B9ACB94",
+      "year": 0,
+      "tempo": 106.74,
+      "loudness": -12.74,
+      "distance": 0.223494
+    },
+    {
+      "song_id": "SOPCQZO12AB018596A",
+      "song_name": "Donnez-nous des jardins",
+      "artist_name": "Pierre Perret",
+      "artist_id": "ARW45YR1187FB3DE95",
+      "year": 1975,
+      "tempo": 108.24,
+      "loudness": -10.99,
+      "distance": 0.26231
+    },
+    {
+      "song_id": "SOCGURJ12AB0182AEE",
+      "song_name": "Heaven is Where The Heart Is",
+      "artist_name": "Rance Allen Group",
+      "artist_id": "AR77FBJ1187FB49D8D",
+      "year": 0,
+      "tempo": 111.32,
+      "loudness": -12.78,
+      "distance": 0.272642
+    },
+    {
+      "song_id": "SONRFCO12AC3DF6AFB",
+      "song_name": "A Fool's Advice",
+      "artist_name": "Joe Grushecky",
+      "artist_id": "ARZIKR01187B98DF08",
+      "year": 0,
+      "tempo": 110.0,
+      "loudness": -13.54,
+      "distance": 0.30611
+    },
+    {
+      "song_id": "SOWRBWU12A8C13969D",
+      "song_name": "Fantasie (Extended Version)",
+      "artist_name": "Paso Doble",
+      "artist_id": "AR6896B1187B98FADA",
+      "year": 0,
+      "tempo": 115.63,
+      "loudness": -11.72,
+      "distance": 0.336936
+    },
+    {
+      "song_id": "SOHOPAT12A8C1436AC",
+      "song_name": "My Never",
+      "artist_name": "Blue October",
+      "artist_id": "ARDQ62L1187FB56FF0",
+      "year": 2009,
+      "tempo": 103.65,
+      "loudness": -12.64,
+      "distance": 0.343862
+    },
+    {
+      "song_id": "SOVEJCH12AB0187974",
+      "song_name": "Du Er Venta I Himlen",
+      "artist_name": "Mons Leidvin Takle",
+      "artist_id": "ARSS1OZ1187FB54440",
+      "year": 0,
+      "tempo": 113.07,
+      "loudness": -12.13,
+      "distance": 0.344124
+    },
+    {
+      "song_id": "SOVGRXC12A6D4F94A8",
+      "song_name": "Against My Will (LP Version)",
+      "artist_name": "Brenda Lee",
+      "artist_id": "ARGKD4W1187B990E04",
+      "year": 1960,
+      "tempo": 118.3,
+      "loudness": -12.99,
+      "distance": 0.362192
+    },
+    {
+      "song_id": "SODXWSC12A8C13828F",
+      "song_name": "Only Love",
+      "artist_name": "Daryl Hall & John Oates",
+      "artist_id": "ARN0DMU1187FB5B63A",
+      "year": 1990,
+      "tempo": 118.43,
+      "loudness": -12.09,
+      "distance": 0.363026
+    }
+  ]
+}

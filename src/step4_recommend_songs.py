@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-Bước 4 - Gợi ý các bài hát tương tự với một bài do người dùng nhập vào.
+Step 4 - Suggest songs similar to a song entered by the user.
 
-Tương ứng Box 11.7 trong sách và sơ đồ Figure 11.10:
-    bài đầu vào -> tra cụm của nó -> chỉ so sánh với các bài cùng cụm
-                -> tính khoảng cách -> lấy top N bài gần nhất.
-Nhờ bước gom cụm, không gian tìm kiếm giảm ~k lần nên có thể chạy gần thời gian thực.
+Corresponding to Box 11.7 in the book and Figure 11.10:
+    Input song -> find its cluster -> only compare with songs in the same cluster
+                -> calculate distance -> get top N nearest songs.
+Thanks to the clustering step, the search space is reduced ~k times, enabling near real-time performance.
 
-Khác biệt so với sách: người dùng truyền song-id (hoặc tên bài) qua tham số dòng
-lệnh thay vì lặp qua toàn bộ dataset, và mặc định dùng khoảng cách Euclid trên
-không gian đã chuẩn hoá. Muốn dùng đúng công thức của sách thì thêm --metric book.
+Difference from the book: the user passes song-id (or song name) via command line
+parameter instead of iterating through the entire dataset, and uses Euclidean distance
+on the normalized space by default. To use the book's exact formula, add --metric book.
 
-Cách chạy:
+How to run:
     python3 src/step4_recommend_songs.py --song-id SOICLQB12A8C13637C
     python3 src/step4_recommend_songs.py --title "Exodus" --top 10
 """
@@ -43,23 +43,23 @@ def describe(fields):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Gợi ý bài hát tương tự")
+    parser = argparse.ArgumentParser(description="Suggest similar songs")
     parser.add_argument("--clustered", default="data/songs_clustered",
-                        help="Thư mục kết quả của bước 3")
+                        help="Output directory from step 3")
     parser.add_argument("--model", default="data/kmeans_model.p")
-    parser.add_argument("--song-id", default="", help="Song ID của bài đầu vào")
-    parser.add_argument("--title", default="", help="Tìm bài đầu vào theo tên (gần đúng)")
+    parser.add_argument("--song-id", default="", help="Song ID of the input song")
+    parser.add_argument("--title", default="", help="Find input song by name (approximate)")
     parser.add_argument("--random", action="store_true",
-                        help="Chọn ngẫu nhiên một bài làm đầu vào")
+                        help="Randomly select an input song")
     parser.add_argument("--top", type=int, default=common.DEFAULT_TOP_N)
     parser.add_argument("--metric", choices=["euclidean", "book"], default="euclidean")
     parser.add_argument("--output-json", default="")
     args = parser.parse_args()
 
     if not (args.song_id or args.title or args.random):
-        sys.exit("Cần một trong các tham số: --song-id, --title hoặc --random")
+        sys.exit("Need one of the parameters: --song-id, --title or --random")
     if not os.path.exists(args.model):
-        sys.exit("Chưa có model '%s'. Hãy chạy bước 3 trước." % args.model)
+        sys.exit("Model '%s' does not exist. Please run step 3 first." % args.model)
 
     model = common.load_model(args.model)
     centers, mean, std = model["centers"], model["mean"], model["std"]
@@ -72,7 +72,7 @@ def main():
                   .filter(lambda f: common.is_data_row(f, len(common.CLUSTERED_COLUMNS)))
                   .cache())
 
-        # --- Tìm bài hát đầu vào -------------------------------------------
+        # --- Find the input song -------------------------------------------
         if args.song_id:
             matches = rows.filter(lambda f: f[IDX["song_id"]] == args.song_id).take(1)
         elif args.title:
@@ -82,7 +82,7 @@ def main():
         else:
             matches = rows.takeSample(False, 1, seed=random.randint(0, 10 ** 6))
         if not matches:
-            sys.exit("Không tìm thấy bài hát đầu vào trong dataset.")
+            sys.exit("Could not find the input song in the dataset.")
         seed_song = matches[0]
 
         cluster_id = common.to_int(seed_song[CLUSTER_IDX])
@@ -91,12 +91,12 @@ def main():
             common.feature_vector(seed_song, feature_cols), mean, std)
 
         info = describe(seed_song)
-        print("Bài hát đầu vào : %s - %s (%s)"
+        print("Input song: %s - %s (%s)"
               % (info["song_name"], info["artist_name"], info["song_id"]))
-        print("Cụm tìm được    : %d" % cluster_id)
-        print("Tâm cụm (z-score): %s" % [round(x, 3) for x in center])
+        print("Found cluster: %d" % cluster_id)
+        print("Cluster center (z-score): %s" % [round(x, 3) for x in center])
 
-        # --- So sánh với các bài khác trong cùng cụm ------------------------
+        # --- Compare with other songs in the same cluster ------------------------
         bc = sc.broadcast({"mean": mean, "std": std, "center": center,
                            "seed": seed_vec, "cols": feature_cols,
                            "metric": args.metric})
@@ -117,10 +117,10 @@ def main():
 
         n_candidates = candidates.count()
         top = candidates.map(score).takeOrdered(args.top, key=lambda x: x[0])
-        print("Số bài cùng cụm  : %d (toàn bộ dataset: %d)" % (n_candidates, rows.count()))
+        print("Number of songs in the same cluster: %d (total dataset: %d)" % (n_candidates, rows.count()))
 
-        print("\n%d bài hát tương tự nhất (metric=%s):" % (len(top), args.metric))
-        print("  %-4s %-38s %-28s %-6s %s" % ("#", "Bài hát", "Nghệ sĩ", "Năm", "Khoảng cách"))
+        print("\n%d similar songs (metric=%s):" % (len(top), args.metric))
+        print("  %-4s %-38s %-28s %-6s %s" % ("#", "Song", "Artist", "Year", "Distance"))
         similar = []
         for rank, (dist, fields) in enumerate(top, 1):
             item = describe(fields)
@@ -130,7 +130,7 @@ def main():
                   % (rank, item["song_name"][:38], item["artist_name"][:28],
                      item["year"] or "-", dist))
 
-        # cf. dict `post` trong Box 11.7 (sách đẩy kết quả này vào MongoDB)
+        # cf. dict `post` in Box 11.7 (the book pushes these results to MongoDB)
         post = {
             "name": info["song_name"],
             "artist": info["artist_name"],
@@ -145,7 +145,7 @@ def main():
             os.makedirs(os.path.dirname(os.path.abspath(args.output_json)), exist_ok=True)
             with open(args.output_json, "w", encoding="utf-8") as f:
                 json.dump(post, f, ensure_ascii=False, indent=2)
-            print("\nĐã ghi kết quả vào %s" % args.output_json)
+            print("\nResults have been saved to %s" % args.output_json)
     finally:
         sc.stop()
 
