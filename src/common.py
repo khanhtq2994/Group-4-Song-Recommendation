@@ -179,7 +179,7 @@ def song_distance(p, user_point, center, metric="euclidean"):
 
 
 # --------------------------------------------------------------------------
-# Spark & lưu model
+# Spark & model persistence
 # --------------------------------------------------------------------------
 def make_spark_context(app_name, master="local[*]"):
     """Create SparkContext that works when called via `python3 script.py` or `spark-submit`."""

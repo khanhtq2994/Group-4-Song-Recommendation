@@ -50,13 +50,13 @@ def main():
 
         features = rows.map(common.feature_vector).cache()
         mean, std, n = common.column_stats(features)
-        print("Số bài hợp lệ: %d" % n)
+        print("Valid songs: %d" % n)
         for col, m, s in zip(common.FEATURE_COLS, mean, std):
             print("  %-18s mean=%10.4f  std=%10.4f" % (col, m, s))
 
         scaled = features.map(lambda v: common.standardize(v, mean, std)).cache()
 
-        # cf. KMeans.train(Parseddata, 10, maxIterations=100, ...) trong Box 11.6
+        # cf. KMeans.train(Parseddata, 10, maxIterations=100, ...) in Box 11.6
         model = KMeans.train(scaled, args.k,
                              maxIterations=args.max_iterations,
                              initializationMode="k-means||",

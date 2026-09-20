@@ -5,6 +5,15 @@ The codebase is inspired by Section 11.3 of Bahga & Madisetti, *Big Data Science
 
 The system utilizes **content-based filtering**: it does not require user listening history or ratings. Instead, it relies solely on the audio features of songs extracted from the Million Song Dataset.
 
+## Group 4 — Members
+
+| # | Full name |
+|---|---|
+| 1 | Lê Thị Kim Chi |
+| 2 | Trương Quốc Khánh |
+| 3 | Trương Sỹ Quảng |
+| 4 | Nguyễn Viết Anh Minh |
+
 ## 1. Flow
 
 ```text
@@ -135,9 +144,14 @@ The following modifications were made compared to the original code in the textb
 | `euclid_dist` (cosine + magnitude diff) | Default Euclidean on normalized space; kept book's formula under `--metric book` | The book's formula adds `cosine²`, causing two songs in the **same direction** to be considered far apart. Retained strictly for comparison. |
 | Iterated over all songs for demo | Accepts `--song-id` / `--title` from CLI | Aligns with the textbook description: "user provides a song-ID as input". |
 
-## 8. AI Tools
+## 8. AI Assistance
 
-- **Google Gemini 3.1 Pro**: Used for code review, documentation structuring, translation, and generating the Docker Compose configuration to ensure a professional and reproducible setup.
+Declared in line with the course policy on acknowledging AI assistance:
+
+- **Google Gemini** — code review, documentation structuring and English translation.
+- **Claude Code** — assistance with writing and refactoring the pipeline scripts, and a full end-to-end re-run of steps 1–4 inside the Spark container to confirm that every artefact in `output_evidence/` is reproducible.
+
+Every member of the group has reviewed the submitted code and can explain the pipeline and the design decisions listed in section 7.
 
 ## 9. Acknowledgements
 
