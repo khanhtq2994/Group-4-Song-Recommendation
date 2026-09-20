@@ -45,22 +45,18 @@ tempo, key_confidence, mode_confidence, year, artist_hotttnesss, duration
 ```
 The first 10 columns maintain the order from the book; the last 2 columns were added for artist ranking and display purposes.
 
-## 3. Environment Setup (Docker Workspace)
+## 3. Environment Setup (Docker)
 
-Since this project is located inside the `BDA501-Spark-Lab/workspace` directory, the global Spark container provided by the lab can be utilized. There is no need to set up a separate Spark cluster.
+This project assumes a running Spark Docker container is available in the environment.
 
-1. Start the main lab's Spark container (from the `BDA501-Spark-Lab` directory):
-   ```bash
-   cd ../../
-   docker-compose up -d
-   ```
+1. Ensure the Spark container is started.
 2. Access the Spark container's shell and navigate to this project:
    ```bash
-   docker exec -it bda501-spark bash
+   docker exec -it <spark_container_name> bash
    cd <project_directory_name>
    pip install -r requirements.txt
    ```
-*(Note: The global workspace maps the entire `./workspace` folder into the container, so the code and data are automatically synced!)*
+*(Note: Ensure the project directory is volume-mapped into the container so that the code and data are automatically synced.)*
 
 ## 4. Execution Instruction
 
