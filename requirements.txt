@@ -1,0 +1,4 @@
+# Cài bằng: pip install -r requirements.txt
+pyspark>=3.4.0      # Spark + MLlib (cần JDK 8/11/17 cài sẵn)
+numpy>=1.21         # pyspark.mllib yêu cầu
+h5py>=3.6           # đọc file HDF5 của Million Song Dataset (bước 1)
