@@ -57,7 +57,7 @@ Since this project is located inside the `BDA501-Spark-Lab/workspace` directory,
 2. Access the Spark container's shell and navigate to this project:
    ```bash
    docker exec -it bda501-spark bash
-   cd Group-4-Song-Recommendation
+   cd <project_directory_name>
    pip install -r requirements.txt
    ```
 *(Note: The global workspace maps the entire `./workspace` folder into the container, so the code and data are automatically synced!)*
